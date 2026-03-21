@@ -33,7 +33,7 @@
     <div class="container">
       <div class="team-grid">
 
-        <div class="team-card featured">
+        <div class="team-card reveal reveal-delay-1" featured">
           <div class="team-render">
             <img src="images/qwer.png" alt="qwer10231023">
           </div>
@@ -43,7 +43,7 @@
           </div>
         </div>
 
-        <div class="team-card featured">
+        <div class="team-card reveal reveal-delay-2" featured">
           <div class="team-render">
             <img src="images/maraf.png" alt="_Maraf1k_">
           </div>
@@ -53,7 +53,7 @@
           </div>
         </div>
 
-        <div class="team-card">
+        <div class="team-card reveal reveal-delay-3"">
           <div class="team-render">
             <img src="images/sprun.png" alt="Sprun4321">
           </div>
@@ -63,7 +63,7 @@
           </div>
         </div>
 
-        <div class="team-card">
+        <div class="team-card reveal reveal-delay-4"">
           <div class="team-render">
             <img src="images/pikababa.png" alt="Pikababa">
           </div>
@@ -73,7 +73,7 @@
           </div>
         </div>
 
-        <div class="team-card">
+        <div class="team-card reveal reveal-delay-5"">
           <div class="team-render">
             <img src="images/santos.png" alt="Snr_Santos">
           </div>
@@ -93,5 +93,17 @@
   <footer><p>© 2026 <span>Qwer_Team</span> — Minecraft контент на заказ. Размещено на GitHub Pages.</p></footer>
 </div>
 
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
