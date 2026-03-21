@@ -93,7 +93,19 @@
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
     .project-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
     .project-card:hover { border-color: rgba(74,222,128,0.4); transform: translateY(-4px); }
-    .project-img { width: 100%; height: 160px; background: linear-gradient(135deg, #1a2e1a, #0d1f0d); display: flex; align-items: center; justify-content: center; font-size: 3rem; border-bottom: 1px solid var(--border); }
+    .project-img {
+      width: 100%; height: 180px;
+      background: #000;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.4s ease;
+    }
+    .project-card:hover .project-img img { transform: scale(1.05); }
     .project-body { padding: 1.5rem; }
     .project-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); background: rgba(74,222,128,0.1); padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.75rem; }
     .project-card h3 { font-family: 'Unbounded', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; line-height: 1.3; }
@@ -252,7 +264,7 @@
     <p class="section-desc">Наши карты и моды, опубликованные на Minecraft Inside.</p>
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-img">🪣</div>
+        <div class="project-img"><img src="images/cover_reassurance.png" alt="Reassurance Bucket"></div>
         <div class="project-body">
           <div class="project-tag">Мод • 1.21.11</div>
           <h3>Reassurance Bucket</h3>
@@ -260,7 +272,7 @@
         </div>
       </div>
       <div class="project-card">
-        <div class="project-img">🏠</div>
+        <div class="project-img"><img src="images/cover_remake.png" alt="Обычный случай Remake"></div>
         <div class="project-body">
           <div class="project-tag">Карта • 1.21.11</div>
           <h3>Обычный случай | Remake</h3>
@@ -268,7 +280,7 @@
         </div>
       </div>
       <div class="project-card">
-        <div class="project-img">🍾</div>
+        <div class="project-img"><img src="images/cover_batpop.png" alt="Bottle Adventure"></div>
         <div class="project-body">
           <div class="project-tag">Карта • 1.21.11</div>
           <h3>Bottle Adventure: The Problem Of Peace</h3>
@@ -276,7 +288,7 @@
         </div>
       </div>
       <div class="project-card">
-        <div class="project-img">🌨️</div>
+        <div class="project-img"><img src="images/cover_tsbl.png" alt="The Snowy Bloodline"></div>
         <div class="project-body">
           <div class="project-tag">Карта • 1.16.5</div>
           <h3>The Snowy Bloodline | Chapters 1-2</h3>
@@ -284,7 +296,7 @@
         </div>
       </div>
       <div class="project-card">
-        <div class="project-img">🔍</div>
+        <div class="project-img"><img src="images/cover_mwid.png" alt="My Wife Is Dead"></div>
         <div class="project-body">
           <div class="project-tag">Карта • 1.21.1</div>
           <h3>My Wife Is Dead | Chapters 1-2</h3>
@@ -292,7 +304,7 @@
         </div>
       </div>
       <div class="project-card">
-        <div class="project-img">🕳️</div>
+        <div class="project-img"><img src="images/cover_void.png" alt="Legend of the Void"></div>
         <div class="project-body">
           <div class="project-tag">Карта • 1.16.5</div>
           <h3>Bottle Adventure: Legend Of The Void</h3>
