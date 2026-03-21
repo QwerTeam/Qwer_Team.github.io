@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Qwer_Team</title>
+  <link rel="icon" type="image/png" href="images/banka.png">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+
+    .error-page {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .error-page::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 50% 50% at 50% 60%, rgba(74,222,128,0.05) 0%, transparent 70%);
+    }
+
+    .error-number {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(6rem, 20vw, 14rem);
+      font-weight: 900;
+      color: var(--border);
+      line-height: 1;
+      letter-spacing: -4px;
+      position: relative;
+      z-index: 0;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .sleeping-wrap {
+      position: relative;
+      margin-top: -3rem;
+      z-index: 1;
+      animation: fadeUp 0.6s 0.15s ease both;
+    }
+
+    .sleeping-wrap img {
+      height: 220px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 40px rgba(74,222,128,0.1));
+    }
+
+    .error-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -1px;
+      margin-top: 1.5rem;
+      animation: fadeUp 0.6s 0.25s ease both;
+    }
+
+    .error-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 400px;
+      margin-top: 0.75rem;
+      animation: fadeUp 0.6s 0.35s ease both;
+    }
+
+    .error-btns {
+      display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 0.6s 0.45s ease both;
+    }
+
+    .zzz {
+      position: absolute;
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 900;
+      color: var(--green);
+      animation: float 3s ease-in-out infinite;
+      opacity: 0.7;
+    }
+    .zzz:nth-child(1) { font-size: 1rem; top: 20%; left: 38%; animation-delay: 0s; }
+    .zzz:nth-child(2) { font-size: 1.4rem; top: 14%; left: 44%; animation-delay: 0.6s; }
+    .zzz:nth-child(3) { font-size: 1.8rem; top: 7%; left: 50%; animation-delay: 1.2s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-5deg); opacity: 0.4; }
+      50% { transform: translateY(-12px) rotate(5deg); opacity: 0.9; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/banka.png" alt="logo"><span class="logo-text">Qwer<span class="logo-green">_Team</span></span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Главная</a></li>
+    <li><a href="projects.html">Проекты</a></li>
+    <li><a href="team.html">Команда</a></li>
+    <li><a href="index.html#contact">Связаться</a></li>
+  </ul>
+</nav>
+
+<div class="error-page">
+  <div class="error-number">404</div>
+
+  <div class="sleeping-wrap">
+    <span class="zzz">z</span>
+    <span class="zzz">z</span>
+    <span class="zzz">Z</span>
+    <img src="images/sleeping.png" alt="sleeping">
+  </div>
+
+  <div class="error-title">Страница спит</div>
+  <p class="error-sub">Похоже, эта страница куда-то пропала. Возможно, она просто отдыхает, как и наш создатель.</p>
+
+  <div class="error-btns">
+    <a href="index.html" class="btn btn-primary">На главную</a>
+    <a href="projects.html" class="btn btn-outline">Проекты</a>
+  </div>
+</div>
+
+</body>
+</html>
