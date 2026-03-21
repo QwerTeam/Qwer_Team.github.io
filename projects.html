@@ -7,6 +7,127 @@
   <link rel="icon" type="image/png" href="images/banka.png">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      border-color: rgba(74,222,128,0.4);
+      transform: translateY(-4px);
+    }
+
+    .project-img {
+      width: 100%; height: 200px;
+      background: #000;
+      overflow: hidden;
+      position: relative;
+    }
+    .project-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center center;
+      transition: transform 0.4s ease;
+    }
+    .project-card:hover .project-img img { transform: scale(1.05); }
+
+    .project-type {
+      position: absolute;
+      top: 10px; left: 10px;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #000;
+      background: var(--green);
+      padding: 0.25rem 0.6rem; border-radius: 4px;
+    }
+
+    .project-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .project-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1rem; font-weight: 700;
+      color: var(--white); margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 0.85rem; color: var(--muted);
+      line-height: 1.6; margin-bottom: 1.25rem;
+    }
+
+    .project-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .meta-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+    }
+    .meta-label {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.2rem;
+    }
+    .meta-value {
+      font-size: 0.8rem; font-weight: 600;
+      color: var(--white);
+    }
+    .meta-value.green { color: var(--green); }
+
+    .project-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+    .tag {
+      font-size: 0.7rem; font-weight: 700;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.2rem 0.6rem;
+    }
+
+    .project-footer {
+      margin-top: auto;
+    }
+
+    .btn-details {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%;
+      padding: 0.7rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.85rem; font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-details:hover {
+      border-color: var(--green);
+      color: var(--green);
+      background: rgba(74,222,128,0.05);
+    }
+  </style>
 </head>
 <body>
 
@@ -33,57 +154,156 @@
     <div class="container">
       <div class="projects-grid">
 
+        <!-- Reassurance Bucket -->
         <div class="project-card">
-          <div class="project-img"><img src="images/cover_reassurance.png" alt="Reassurance Bucket" style="object-fit:cover;"></div>
+          <div class="project-img">
+            <span class="project-type">Мод</span>
+            <img src="images/cover_reassurance.png" alt="Reassurance Bucket">
+          </div>
           <div class="project-body">
-            <div class="project-tag">Мод • 1.21.11</div>
-            <h3>Reassurance Bucket</h3>
-            <p>Культовое Ведро из The Stanley Parable в Minecraft. Держите его — и начнут происходить интересные вещи.</p>
+            <div class="project-title">Reassurance Bucket</div>
+            <div class="project-desc">Мод добавляет культовое Ведро из The Stanley Parable в Minecraft. Держите его в руке — оно будет говорить с вами, реагировать на ваш мир, спавнить существ и осуждать ваши другие предметы.</div>
+            <div class="project-meta">
+              <div class="meta-item"><div class="meta-label">Версия</div><div class="meta-value">1.21.11</div></div>
+              <div class="meta-item"><div class="meta-label">Тип</div><div class="meta-value">Мод</div></div>
+              <div class="meta-item"><div class="meta-label">Моды</div><div class="meta-value green">Не требуются</div></div>
+              <div class="meta-item"><div class="meta-label">Ресурспак</div><div class="meta-value green">Не требуется</div></div>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Мод</span>
+              <span class="tag">Комедия</span>
+            </div>
+            <div class="project-footer">
+              <a href="https://minecraft-inside.ru/abyss/191646-reassurance-bucket.html" target="_blank" class="btn-details">Подробнее →</a>
+            </div>
           </div>
         </div>
 
+        <!-- Обычный случай Remake -->
         <div class="project-card">
-          <div class="project-img"><img src="images/cover_remake.png" alt="Обычный случай Remake"></div>
+          <div class="project-img">
+            <span class="project-type">Карта</span>
+            <img src="images/cover_remake.png" alt="Обычный случай Remake">
+          </div>
           <div class="project-body">
-            <div class="project-tag">Карта • 1.21.11</div>
-            <h3>Обычный случай | Remake</h3>
-            <p>Вы — самый обычный человек. Ваш брат пригласил вас к себе. Но в комнате вас кто-то поджидал...</p>
+            <div class="project-title">Обычный случай | Remake</div>
+            <div class="project-desc">Вы — самый обычный человек, живущий обычной жизнью. Ваш родной брат переехал в ваш город, и вы договорились встретиться. После этого брат пригласил вас к себе. Но когда вы поднялись, то обнаружили, что в комнате царит полная разруха, а вас кто-то поджидал.</div>
+            <div class="project-meta">
+              <div class="meta-item"><div class="meta-label">Версия</div><div class="meta-value">1.21.5</div></div>
+              <div class="meta-item"><div class="meta-label">Игроков</div><div class="meta-value">1</div></div>
+              <div class="meta-item"><div class="meta-label">Моды</div><div class="meta-value green">Не требуются</div></div>
+              <div class="meta-item"><div class="meta-label">Ресурспак</div><div class="meta-value" style="color:#f59e0b">Требуется</div></div>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Приключение</span>
+            </div>
+            <div class="project-footer">
+              <a href="https://minecraft-inside.ru/maps/188069-obychnyy-sluchay-remake.html" target="_blank" class="btn-details">Подробнее →</a>
+            </div>
           </div>
         </div>
 
+        <!-- Bottle Adventure TPOP -->
         <div class="project-card">
-          <div class="project-img"><img src="images/cover_batpop.png" alt="Bottle Adventure"></div>
+          <div class="project-img">
+            <span class="project-type">Карта</span>
+            <img src="images/cover_batpop.png" alt="Bottle Adventure">
+          </div>
           <div class="project-body">
-            <div class="project-tag">Карта • 1.21.11</div>
-            <h3>Bottle Adventure: The Problem Of Peace</h3>
-            <p>Исследуйте 35+ бутылок, выполните все достижения и убейте дракона. Мультиплеер поддерживается.</p>
+            <div class="project-title">Bottle Adventure: The Problem Of Peace</div>
+            <div class="project-desc">Вам предстоит пройти все достижения и исследовать 35+ бутылок. Главная задача: выполнить все достижения и убить дракона. Помните, что много пасхалок не бывает! Карта поддерживает мультиплеер.</div>
+            <div class="project-meta">
+              <div class="meta-item"><div class="meta-label">Версия</div><div class="meta-value">1.21.5</div></div>
+              <div class="meta-item"><div class="meta-label">Игроков</div><div class="meta-value">1+</div></div>
+              <div class="meta-item"><div class="meta-label">Моды</div><div class="meta-value green">Не требуются</div></div>
+              <div class="meta-item"><div class="meta-label">Ресурспак</div><div class="meta-value" style="color:#f59e0b">Требуется</div></div>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Выживание</span>
+              <span class="tag">Приключение</span>
+              <span class="tag">Мультиплеер</span>
+            </div>
+            <div class="project-footer">
+              <a href="https://minecraft-inside.ru/maps/176229-bottle-adventure-the-problem-of-peace.html" target="_blank" class="btn-details">Подробнее →</a>
+            </div>
           </div>
         </div>
 
+        <!-- The Snowy Bloodline -->
         <div class="project-card">
-          <div class="project-img"><img src="images/cover_tsbl.png" alt="The Snowy Bloodline"></div>
+          <div class="project-img">
+            <span class="project-type">Карта</span>
+            <img src="images/cover_tsbl.png" alt="The Snowy Bloodline">
+          </div>
           <div class="project-body">
-            <div class="project-tag">Карта • 1.16.5</div>
-            <h3>The Snowy Bloodline | Chapters 1-2</h3>
-            <p>Вы — редактор книг. Мама приглашает вас в гости. Но вскоре начинают происходить странные вещи...</p>
+            <div class="project-title">The Snowy Bloodline | Chapters 1-2</div>
+            <div class="project-desc">Вы — редактор книг, живущий в спокойном ритме. Внезапно вам звонит мама и приглашает в гости. Проведённое вместе время наполняется теплом и уютом, но вскоре начинают происходить странные вещи, которые заставляют вас усомниться в реальности происходящего.</div>
+            <div class="project-meta">
+              <div class="meta-item"><div class="meta-label">Версия</div><div class="meta-value">1.16.5</div></div>
+              <div class="meta-item"><div class="meta-label">Игроков</div><div class="meta-value">1</div></div>
+              <div class="meta-item"><div class="meta-label">Моды</div><div class="meta-value" style="color:#f59e0b">Требуются</div></div>
+              <div class="meta-item"><div class="meta-label">Ресурспак</div><div class="meta-value" style="color:#f59e0b">Требуется</div></div>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Хоррор</span>
+              <span class="tag">Сюжет</span>
+            </div>
+            <div class="project-footer">
+              <a href="https://minecraft-inside.ru/maps/185365-the-snowy-bloodline-chapters-1-2.html" target="_blank" class="btn-details">Подробнее →</a>
+            </div>
           </div>
         </div>
 
+        <!-- My Wife Is Dead -->
         <div class="project-card">
-          <div class="project-img"><img src="images/cover_mwid.png" alt="My Wife Is Dead"></div>
+          <div class="project-img">
+            <span class="project-type">Карта</span>
+            <img src="images/cover_mwid.png" alt="My Wife Is Dead">
+          </div>
           <div class="project-body">
-            <div class="project-tag">Карта • 1.21.1</div>
-            <h3>My Wife Is Dead | Chapters 1-2</h3>
-            <p>Вы — детектив, расследующий странные события в старинном особняке. Обновлено до версии 2.1.</p>
+            <div class="project-title">My Wife Is Dead | Chapters 1-2</div>
+            <div class="project-desc">Вы — детектив, которому поступил неожиданный заказ расследовать странные события в старинном особняке. Погружаясь в мрак особняка, вы сталкиваетесь с тёмной историей и интригами прошлого. Карта на одного человека!</div>
+            <div class="project-meta">
+              <div class="meta-item"><div class="meta-label">Версия</div><div class="meta-value">1.21.1</div></div>
+              <div class="meta-item"><div class="meta-label">Игроков</div><div class="meta-value">1</div></div>
+              <div class="meta-item"><div class="meta-label">Моды</div><div class="meta-value green">Не требуются</div></div>
+              <div class="meta-item"><div class="meta-label">Ресурспак</div><div class="meta-value" style="color:#f59e0b">Требуется</div></div>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Детектив</span>
+              <span class="tag">Хоррор</span>
+              <span class="tag">Сюжет</span>
+            </div>
+            <div class="project-footer">
+              <a href="https://minecraft-inside.ru/maps/179356-my-wife-is-dead-chapters-1-2.html" target="_blank" class="btn-details">Подробнее →</a>
+            </div>
           </div>
         </div>
 
+        <!-- Legend of the Void -->
         <div class="project-card">
-          <div class="project-img"><img src="images/cover_void.png" alt="Legend of the Void"></div>
+          <div class="project-img">
+            <span class="project-type">Карта</span>
+            <img src="images/cover_void.png" alt="Legend of the Void">
+          </div>
           <div class="project-body">
-            <div class="project-tag">Карта • 1.16.5</div>
-            <h3>Bottle Adventure: Legend Of The Void</h3>
-            <p>DLC к Bottle Adventure. Новый босс. Осторожно — одна жизнь, мир удаляется навсегда.</p>
+            <div class="project-title">Bottle Adventure: Legend Of The Void</div>
+            <div class="project-desc">DLC к Bottle Adventure: The Problem Of Peace. Погрузитесь в захватывающее приключение с новым боссом, усложнениями и несколькими новыми бутылками. Будьте осторожны — у вас всего одна жизнь! Если вы погибнете, ваш мир будет навсегда удалён.</div>
+            <div class="project-meta">
+              <div class="meta-item"><div class="meta-label">Версия</div><div class="meta-value">1.16.5</div></div>
+              <div class="meta-item"><div class="meta-label">Игроков</div><div class="meta-value">1</div></div>
+              <div class="meta-item"><div class="meta-label">Моды</div><div class="meta-value green">Не требуются</div></div>
+              <div class="meta-item"><div class="meta-label">Ресурспак</div><div class="meta-value green">Не требуется</div></div>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Выживание</span>
+              <span class="tag">Хардкор</span>
+              <span class="tag">1 жизнь</span>
+              <span class="tag">DLC</span>
+            </div>
+            <div class="project-footer">
+              <a href="https://minecraft-inside.ru/maps/179970-bottle-adventure-legend-of-the-void.html" target="_blank" class="btn-details">Подробнее →</a>
+            </div>
           </div>
         </div>
 
