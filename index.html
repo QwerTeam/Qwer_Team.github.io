@@ -160,16 +160,28 @@
     .contact-cta h3 { font-family: 'Unbounded', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--white); margin-bottom: 1rem; letter-spacing: -0.5px; }
     .contact-cta p { color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
 
+    .footer-wrapper { position: relative; }
+    .footer-sleeping-outer {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 130px;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .footer-sleeping-outer img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
     footer {
       background: var(--bg2); border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem; text-align: center;
       color: var(--muted); font-size: 0.85rem;
-      display: flex; align-items: flex-end; justify-content: center;
-      gap: 1.5rem; padding: 1rem 2rem 0; min-height: 90px; overflow: hidden;
     }
     footer span { color: var(--green); }
-    .footer-text { padding-bottom: 1.5rem; }
-    .footer-sleeping { height: 120px; width: auto; flex-shrink: 0; }
-    .footer-sleeping img { height: 100%; width: auto; object-fit: contain; opacity: 0.9; display: block; }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -383,12 +395,14 @@
   </div>
 </section>
 
-<footer>
-  <div class="footer-sleeping">
+<div class="footer-wrapper">
+  <div class="footer-sleeping-outer">
     <img src="images/sleeping.png" alt="zzz">
   </div>
-  <p class="footer-text">© 2026 <span>Qwer_Team</span> — Minecraft контент на заказ. Размещено на GitHub Pages.</p>
-</footer>
+  <footer>
+    <p>© 2026 <span>Qwer_Team</span> — Minecraft контент на заказ. Размещено на GitHub Pages.</p>
+  </footer>
+</div>
 
 </body>
 </html>
