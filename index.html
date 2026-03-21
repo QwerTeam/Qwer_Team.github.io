@@ -72,10 +72,10 @@
     <h2 class="section-title">Наши услуги</h2>
     <p class="section-desc">Создаём всё что нужно чтобы выделиться в мире Minecraft.</p>
     <div class="services-grid">
-      <div class="service-card"><div class="service-icon">🗺️</div><h3>Карты</h3><p>Авторские Minecraft-карты любой сложности — приключения, хоррор, квесты.</p></div>
-      <div class="service-card"><div class="service-icon">🎨</div><h3>Скины</h3><p>Уникальные скины под ваш образ. Детальная прорисовка, любой стиль.</p></div>
-      <div class="service-card"><div class="service-icon">🖼️</div><h3>Рендеры</h3><p>Красивые 3D-рендеры скинов и предметов для аватарок и постеров.</p></div>
-      <div class="service-card"><div class="service-icon">🧱</div><h3>3D Модели</h3><p>Кастомные 3D модели для Minecraft — предметы, мобы, блоки под ваш проект.</p></div>
+      <div class="service-card reveal"><div class="service-icon">🗺️</div><h3>Карты</h3><p>Авторские Minecraft-карты любой сложности — приключения, хоррор, квесты.</p></div>
+      <div class="service-card reveal reveal-delay-1"><div class="service-icon">🎨</div><h3>Скины</h3><p>Уникальные скины под ваш образ. Детальная прорисовка, любой стиль.</p></div>
+      <div class="service-card reveal reveal-delay-2"><div class="service-icon">🖼️</div><h3>Рендеры</h3><p>Красивые 3D-рендеры скинов и предметов для аватарок и постеров.</p></div>
+      <div class="service-card reveal reveal-delay-3"><div class="service-icon">🧱</div><h3>3D Модели</h3><p>Кастомные 3D модели для Minecraft — предметы, мобы, блоки под ваш проект.</p></div>
     </div>
   </div>
 </section>
@@ -84,7 +84,7 @@
   <div class="container">
     <div class="section-label">Связаться</div>
     <h2 class="section-title">Контакты</h2>
-    <div class="contact-box">
+    <div class="contact-box reveal">
       <div>
         <p class="section-desc">Хотите заказать скин, рендер, модель или карту? Напишите нам — обсудим детали и цену.</p>
         <div class="contact-links">
@@ -113,5 +113,17 @@
   <footer><p>© 2026 <span>Qwer_Team</span> — Minecraft контент на заказ. Размещено на GitHub Pages.</p></footer>
 </div>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+});
+</script>
 </body>
 </html>
