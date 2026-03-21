@@ -165,7 +165,7 @@
       <div class="projects-grid">
 
         <!-- Reassurance Bucket -->
-        <div class="project-card">
+        <div class="project-card reveal reveal-delay-1">
           <div class="project-img">
             <span class="project-type">Мод</span>
             <img src="images/cover_reassurance.png" alt="Reassurance Bucket">
@@ -190,7 +190,7 @@
         </div>
 
         <!-- Обычный случай Remake -->
-        <div class="project-card">
+        <div class="project-card reveal reveal-delay-2">
           <div class="project-img">
             <span class="project-type">Карта</span>
             <img src="images/cover_remake.png" alt="Обычный случай Remake">
@@ -214,7 +214,7 @@
         </div>
 
         <!-- Bottle Adventure TPOP -->
-        <div class="project-card">
+        <div class="project-card reveal reveal-delay-3">
           <div class="project-img">
             <span class="project-type">Карта</span>
             <img src="images/cover_batpop.png" alt="Bottle Adventure">
@@ -240,7 +240,7 @@
         </div>
 
         <!-- The Snowy Bloodline -->
-        <div class="project-card">
+        <div class="project-card reveal reveal-delay-1">
           <div class="project-img">
             <span class="project-type">Карта</span>
             <img src="images/cover_tsbl.png" alt="The Snowy Bloodline">
@@ -265,7 +265,7 @@
         </div>
 
         <!-- My Wife Is Dead -->
-        <div class="project-card">
+        <div class="project-card reveal reveal-delay-2">
           <div class="project-img">
             <span class="project-type">Карта</span>
             <img src="images/cover_mwid.png" alt="My Wife Is Dead">
@@ -291,7 +291,7 @@
         </div>
 
         <!-- Legend of the Void -->
-        <div class="project-card">
+        <div class="project-card reveal reveal-delay-3">
           <div class="project-img">
             <span class="project-type">Карта</span>
             <img src="images/cover_void.png" alt="Legend of the Void">
@@ -327,5 +327,17 @@
   <footer><p>© 2026 <span>Qwer_Team</span> — Minecraft контент на заказ. Размещено на GitHub Pages.</p></footer>
 </div>
 
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
