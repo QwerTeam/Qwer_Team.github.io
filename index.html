@@ -105,7 +105,7 @@
       grid-template-columns: repeat(5, 1fr);
       gap: 1.5rem;
       margin-top: 3rem;
-      align-items: end;
+      align-items: stretch;
     }
     .team-card {
       background: var(--bg3);
@@ -115,19 +115,21 @@
       text-align: center;
       transition: border-color 0.25s, transform 0.25s;
       position: relative;
+      display: flex;
+      flex-direction: column;
     }
     .team-card:hover { border-color: rgba(74,222,128,0.5); transform: translateY(-6px); }
     .team-card.featured { border-color: rgba(74,222,128,0.2); }
     .team-render {
       width: 100%;
-      height: 240px;
+      flex: 1;
+      min-height: 220px;
       background: transparent;
       display: flex;
       align-items: flex-end;
       justify-content: center;
       overflow: hidden;
     }
-    .team-card.featured .team-render { height: 280px; }
     .team-render img {
       width: 100%;
       height: 100%;
@@ -147,9 +149,7 @@
     .team-nick { font-family: 'Unbounded', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
     .team-role { font-size: 0.75rem; color: var(--green); font-weight: 600; }
 
-    .team-sleeping { margin-top: 1.5rem; max-width: 240px; }
-    .team-sleeping .team-render { height: 160px; }
-    .team-sleeping .team-render img { object-position: center center; }
+    .team-sleeping { display: none; }
 
     #contact { background: var(--bg); }
     .contact-box { margin-top: 3rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 16px; padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
@@ -160,8 +160,16 @@
     .contact-cta h3 { font-family: 'Unbounded', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--white); margin-bottom: 1rem; letter-spacing: -0.5px; }
     .contact-cta p { color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
 
-    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--muted); font-size: 0.85rem; }
+    footer {
+      background: var(--bg2); border-top: 1px solid var(--border);
+      color: var(--muted); font-size: 0.85rem;
+      display: flex; align-items: flex-end; justify-content: center;
+      gap: 1.5rem; padding: 1rem 2rem 0; min-height: 90px; overflow: hidden;
+    }
     footer span { color: var(--green); }
+    .footer-text { padding-bottom: 1.5rem; }
+    .footer-sleeping { height: 120px; width: auto; flex-shrink: 0; }
+    .footer-sleeping img { height: 100%; width: auto; object-fit: contain; opacity: 0.9; display: block; }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -344,19 +352,6 @@
 
     </div>
 
-    <!-- Пасхалка -->
-    <div class="team-sleeping">
-      <div class="team-card">
-        <div class="team-render">
-          <img src="images/sleeping.png" alt="sleeping">
-        </div>
-        <div class="team-info">
-          <div class="team-nick">qwer10231023</div>
-          <div class="team-role">💤 Режим отдыха</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -389,7 +384,10 @@
 </section>
 
 <footer>
-  <p>© 2026 <span>Qwer_Team</span> — Minecraft контент на заказ. Размещено на GitHub Pages.</p>
+  <div class="footer-sleeping">
+    <img src="images/sleeping.png" alt="zzz">
+  </div>
+  <p class="footer-text">© 2026 <span>Qwer_Team</span> — Minecraft контент на заказ. Размещено на GitHub Pages.</p>
 </footer>
 
 </body>
