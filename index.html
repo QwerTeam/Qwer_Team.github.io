@@ -84,7 +84,11 @@
     .contact-link:hover { border-color: rgba(74,222,128,0.4); color: var(--green); }
     .contact-cta h3 { font-family: 'Unbounded', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--white); margin-bottom: 1rem; letter-spacing: -0.5px; }
     .contact-cta p { color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
-    @media (max-width: 600px) { .contact-box { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) {
+      .contact-box { grid-template-columns: 1fr; }
+      .hr-left  { width: 280px; height: 280px; left: -100px; }
+      .hr-right { width: 280px; height: 280px; right: -100px; }
+    }
   </style>
 </head>
 <body>
