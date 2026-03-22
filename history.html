@@ -282,36 +282,5 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 
-<!-- Totem Easter Egg -->
-<div id="totemEgg" style="
-  display:none;
-  position:fixed;
-  z-index:9999;
-  pointer-events:none;
-  animation: totemFloat 3s ease-in-out forwards;
-">
-  <!-- Чтобы поменять картинку: загрузи файл в images/ и замени totem.png на своё имя файла -->
-  <img src="images/totem.png" style="width:80px;height:80px;image-rendering:pixelated;filter:drop-shadow(0 0 12px rgba(74,222,128,0.8));">
-</div>
-<style>
-@keyframes totemFloat {
-  0%   { opacity:0; transform: scale(0.5) translateY(20px); }
-  20%  { opacity:1; transform: scale(1.2) translateY(0); }
-  70%  { opacity:1; transform: scale(1) translateY(-10px); }
-  100% { opacity:0; transform: scale(0.8) translateY(-40px); }
-}
-</style>
-<script>
-(function() {
-  if (Math.random() > 0.01) return; // 1% шанс
-  var egg = document.getElementById('totemEgg');
-  var x = Math.random() * (window.innerWidth - 120) + 20;
-  var y = Math.random() * (window.innerHeight - 150) + 50;
-  egg.style.left = x + 'px';
-  egg.style.top = y + 'px';
-  egg.style.display = 'block';
-  setTimeout(function() { egg.style.display = 'none'; }, 3000);
-})();
-</script>
 </body>
 </html>
