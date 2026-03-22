@@ -51,7 +51,7 @@ nav {
 
 /* PAGE HERO */
 .page-hero {
-  padding: 5rem 2rem 1rem;
+  padding: 5rem 2rem 0.5rem;
   background: var(--bg);
   position: relative;
   overflow: hidden;
@@ -62,7 +62,7 @@ nav {
 }
 
 /* PROJECTS */
-.projects-section { padding: 3rem 2rem 6rem; background: var(--bg); }
+.projects-section { padding: 1.5rem 2rem 6rem; background: var(--bg); }
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
 .project-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
 .project-card:hover { border-color: rgba(74,222,128,0.4); transform: translateY(-4px); }
