@@ -74,7 +74,7 @@ nav {
 
 /* TEAM */
 .team-section { padding: 3rem 2rem 6rem; background: var(--bg2); }
-.team-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; margin-top: 2rem; align-items: stretch; }
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; align-items: stretch; max-width: 800px; margin-left: auto; margin-right: auto; }
 .team-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; text-align: center; transition: border-color 0.25s, transform 0.25s; position: relative; display: flex; flex-direction: column; }
 .team-card:hover { border-color: rgba(74,222,128,0.5); transform: translateY(-6px); }
 .team-card.featured { border-color: rgba(74,222,128,0.2); }
