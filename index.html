@@ -42,7 +42,9 @@
       width: 100%; height: 100%;
       object-fit: contain;
     }
-    .hero-render-item { width: 160px; height: 160px; }
+    .hero-render-item { position: absolute; transition: transform 0.1s ease-out; }
+    .hr-left  { width: 420px; height: 420px; top: 50%; left: -60px; transform: translateY(-50%); }
+    .hr-right { width: 420px; height: 420px; top: 50%; right: -60px; transform: translateY(-50%); }
     .hero-tag { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); border: 1px solid rgba(74,222,128,0.3); padding: 0.35rem 1rem; border-radius: 999px; margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both; }
     h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(2.5rem, 7vw, 5.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -2px; color: var(--white); animation: fadeUp 0.7s 0.1s ease both; }
     h1 span { color: var(--green); }
@@ -81,7 +83,10 @@
 
 <section id="hero">
   <!-- Parallax background renders -->
-  <div class="hero-renders" id="heroRenders"></div>
+  <div class="hero-renders" id="heroRenders">
+    <div class="hero-render-item hr-left"  data-speed="0.05"><img src="images/banka2.png" alt=""></div>
+    <div class="hero-render-item hr-right" data-speed="0.05"><img src="images/banka1.png" alt=""></div>
+  </div>
 
   <!-- Content -->
   <div class="hero-content">
@@ -156,72 +161,30 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const container = document.getElementById("heroRenders");
   const hero = document.getElementById("hero");
-  const images = ["images/banka1.png", "images/banka2.png"];
-  const COUNT = 10;
-
-  // Generate random positions — left 15% and right 15% only
-  for (let i = 0; i < COUNT; i++) {
-    const el = document.createElement("div");
-    el.className = "hero-render-item";
-
-    // Alternate left/right side
-    const onLeft = i % 2 === 0;
-    const x = onLeft
-      ? (Math.random() * 12) + 1        // 1% – 13% from left
-      : (Math.random() * 12) + 87;      // 87% – 99% from left (right side)
-    const y = (Math.random() * 85) + 5; // 5% – 90% top
-    const rot = (Math.random() - 0.5) * 30;
-    const size = Math.floor(Math.random() * 60) + 130; // 130–190px
-    const speed = (Math.random() * 0.06 + 0.02).toFixed(3);
-
-    el.style.cssText = `
-      left: ${x}%;
-      top: ${y}%;
-      width: ${size}px;
-      height: ${size}px;
-      transform: rotate(${rot}deg);
-    `;
-    el.dataset.speed = speed;
-    el.dataset.rot = rot;
-
-    const img = document.createElement("img");
-    img.src = images[i % 2];
-    img.alt = "";
-    el.appendChild(img);
-    container.appendChild(el);
-  }
-
-  const items = document.querySelectorAll(".hero-render-item");
+  const left  = document.querySelector(".hr-left");
+  const right = document.querySelector(".hr-right");
 
   hero.addEventListener("mousemove", function(e) {
     const cx = hero.offsetWidth / 2;
     const cy = hero.offsetHeight / 2;
     const dx = e.clientX - cx;
     const dy = e.clientY - cy;
-
-    items.forEach(item => {
-      const speed = parseFloat(item.dataset.speed);
-      const rot = parseFloat(item.dataset.rot);
-      const x = dx * speed;
-      const y = dy * speed;
-      item.style.transform = `translate(${x}px, ${y}px) rotate(${rot}deg)`;
-    });
+    const s = 0.05;
+    left.style.transform  = `translateY(calc(-50% + ${dy*s}px)) translateX(${dx*s}px)`;
+    right.style.transform = `translateY(calc(-50% + ${dy*s}px)) translateX(${dx*s}px)`;
   });
 
   hero.addEventListener("mouseleave", function() {
-    items.forEach(item => {
-      const rot = parseFloat(item.dataset.rot);
-      item.style.transition = "transform 0.8s ease-out";
-      item.style.transform = `translate(0,0) rotate(${rot}deg)`;
-    });
+    left.style.transition  = "transform 0.8s ease-out";
+    right.style.transition = "transform 0.8s ease-out";
+    left.style.transform   = "translateY(-50%)";
+    right.style.transform  = "translateY(-50%)";
   });
 
   hero.addEventListener("mouseenter", function() {
-    items.forEach(item => {
-      item.style.transition = "transform 0.12s ease-out";
-    });
+    left.style.transition  = "transform 0.12s ease-out";
+    right.style.transition = "transform 0.12s ease-out";
   });
 });
 </script>
