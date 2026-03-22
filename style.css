@@ -51,7 +51,7 @@ nav {
 
 /* PAGE HERO */
 .page-hero {
-  padding: 5rem 2rem 3rem;
+  padding: 5rem 2rem 1rem;
   background: var(--bg);
   position: relative;
   overflow: hidden;
