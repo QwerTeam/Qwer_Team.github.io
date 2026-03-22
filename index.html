@@ -42,12 +42,7 @@
       width: 100%; height: 100%;
       object-fit: contain;
     }
-    .hr-1 { width: 260px; height: 260px; top: -2%; left: -3%; }
-    .hr-2 { width: 300px; height: 300px; top: 5%; right: -2%; }
-    .hr-3 { width: 220px; height: 220px; bottom: 5%; left: 5%; }
-    .hr-4 { width: 280px; height: 280px; bottom: -5%; right: 3%; }
-    .hr-5 { width: 200px; height: 200px; top: 35%; left: -2%; }
-    .hr-6 { width: 200px; height: 200px; top: 30%; right: -1%; }
+    .hero-render-item { width: 160px; height: 160px; }
     .hero-tag { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); border: 1px solid rgba(74,222,128,0.3); padding: 0.35rem 1rem; border-radius: 999px; margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both; }
     h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(2.5rem, 7vw, 5.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -2px; color: var(--white); animation: fadeUp 0.7s 0.1s ease both; }
     h1 span { color: var(--green); }
@@ -86,14 +81,7 @@
 
 <section id="hero">
   <!-- Parallax background renders -->
-  <div class="hero-renders" id="heroRenders">
-    <div class="hero-render-item hr-1" data-speed="0.04"><img src="images/banka1.png" alt=""></div>
-    <div class="hero-render-item hr-2" data-speed="0.06"><img src="images/banka2.png" alt=""></div>
-    <div class="hero-render-item hr-3" data-speed="0.05"><img src="images/banka1.png" alt=""></div>
-    <div class="hero-render-item hr-4" data-speed="0.03"><img src="images/banka2.png" alt=""></div>
-    <div class="hero-render-item hr-5" data-speed="0.07"><img src="images/banka1.png" alt=""></div>
-    <div class="hero-render-item hr-6" data-speed="0.04"><img src="images/banka2.png" alt=""></div>
-  </div>
+  <div class="hero-renders" id="heroRenders"></div>
 
   <!-- Content -->
   <div class="hero-content">
@@ -168,8 +156,44 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const items = document.querySelectorAll(".hero-render-item");
+  const container = document.getElementById("heroRenders");
   const hero = document.getElementById("hero");
+  const images = ["images/banka1.png", "images/banka2.png"];
+  const COUNT = 10;
+
+  // Generate random positions — left 15% and right 15% only
+  for (let i = 0; i < COUNT; i++) {
+    const el = document.createElement("div");
+    el.className = "hero-render-item";
+
+    // Alternate left/right side
+    const onLeft = i % 2 === 0;
+    const x = onLeft
+      ? (Math.random() * 12) + 1        // 1% – 13% from left
+      : (Math.random() * 12) + 87;      // 87% – 99% from left (right side)
+    const y = (Math.random() * 85) + 5; // 5% – 90% top
+    const rot = (Math.random() - 0.5) * 30;
+    const size = Math.floor(Math.random() * 60) + 130; // 130–190px
+    const speed = (Math.random() * 0.06 + 0.02).toFixed(3);
+
+    el.style.cssText = `
+      left: ${x}%;
+      top: ${y}%;
+      width: ${size}px;
+      height: ${size}px;
+      transform: rotate(${rot}deg);
+    `;
+    el.dataset.speed = speed;
+    el.dataset.rot = rot;
+
+    const img = document.createElement("img");
+    img.src = images[i % 2];
+    img.alt = "";
+    el.appendChild(img);
+    container.appendChild(el);
+  }
+
+  const items = document.querySelectorAll(".hero-render-item");
 
   hero.addEventListener("mousemove", function(e) {
     const cx = hero.offsetWidth / 2;
@@ -178,23 +202,25 @@ document.addEventListener("DOMContentLoaded", function() {
     const dy = e.clientY - cy;
 
     items.forEach(item => {
-      const speed = parseFloat(item.dataset.speed) || 0.05;
+      const speed = parseFloat(item.dataset.speed);
+      const rot = parseFloat(item.dataset.rot);
       const x = dx * speed;
       const y = dy * speed;
-      item.style.transform = `translate(${x}px, ${y}px)`;
+      item.style.transform = `translate(${x}px, ${y}px) rotate(${rot}deg)`;
     });
   });
 
   hero.addEventListener("mouseleave", function() {
     items.forEach(item => {
-      item.style.transform = "translate(0, 0)";
+      const rot = parseFloat(item.dataset.rot);
       item.style.transition = "transform 0.8s ease-out";
+      item.style.transform = `translate(0,0) rotate(${rot}deg)`;
     });
   });
 
   hero.addEventListener("mouseenter", function() {
     items.forEach(item => {
-      item.style.transition = "transform 0.1s ease-out";
+      item.style.transition = "transform 0.12s ease-out";
     });
   });
 });
