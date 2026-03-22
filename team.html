@@ -114,16 +114,17 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+
 <!-- Totem Easter Egg -->
 <div id="totemEgg" style="
   display:none;
   position:fixed;
   z-index:9999;
   pointer-events:none;
-  image-rendering:pixelated;
   animation: totemFloat 3s ease-in-out forwards;
 ">
-  <img src="data:image/png;base64,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" style="width:80px;height:80px;image-rendering:pixelated;filter:drop-shadow(0 0 12px rgba(74,222,128,0.8));">
+  <!-- Чтобы поменять картинку: загрузи файл в images/ и замени totem.png на своё имя файла -->
+  <img src="images/totem.png" style="width:80px;height:80px;image-rendering:pixelated;filter:drop-shadow(0 0 12px rgba(74,222,128,0.8));">
 </div>
 <style>
 @keyframes totemFloat {
@@ -135,15 +136,13 @@ document.addEventListener("DOMContentLoaded", function() {
 </style>
 <script>
 (function() {
-  if (Math.random() > 0.10) return; // 10% chance
+  if (Math.random() > 0.01) return; // 1% шанс
   var egg = document.getElementById('totemEgg');
-  // Random position on screen
   var x = Math.random() * (window.innerWidth - 120) + 20;
   var y = Math.random() * (window.innerHeight - 150) + 50;
   egg.style.left = x + 'px';
   egg.style.top = y + 'px';
   egg.style.display = 'block';
-  // Remove after animation
   setTimeout(function() { egg.style.display = 'none'; }, 3000);
 })();
 </script>
