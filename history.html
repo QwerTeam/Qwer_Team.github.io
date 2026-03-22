@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>История — Qwer_Team</title>
+  <link rel="icon" type="image/png" href="images/banka.png">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .history-hero { padding: 5rem 2rem 3rem; background: var(--bg); position: relative; overflow: hidden; }
+    .history-hero::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 50% 60% at 50% 0%, rgba(74,222,128,0.06) 0%, transparent 70%);
+    }
+
+    .history-content { padding: 3rem 2rem 6rem; background: var(--bg); }
+
+    /* Timeline */
+    .timeline { position: relative; max-width: 800px; margin: 3rem auto 0; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--green), rgba(74,222,128,0.1));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 80px;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .timeline-item.visible { opacity: 1; transform: translateX(0); }
+
+    .timeline-dot {
+      position: absolute;
+      left: 16px;
+      top: 6px;
+      width: 26px; height: 26px;
+      background: var(--bg3);
+      border: 2px solid var(--green);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem;
+      color: var(--green);
+      font-weight: 900;
+      z-index: 1;
+    }
+
+    .timeline-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem 2rem;
+      transition: border-color 0.2s;
+    }
+    .timeline-card:hover { border-color: rgba(74,222,128,0.35); }
+
+    .timeline-label {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 0.5rem;
+    }
+    .timeline-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--white); margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .timeline-text {
+      font-size: 0.9rem; color: var(--muted);
+      line-height: 1.75;
+    }
+    .timeline-text + .timeline-text { margin-top: 0.75rem; }
+
+    .timeline-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      margin-top: 1rem;
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--green); text-decoration: none;
+      border: 1px solid rgba(74,222,128,0.3);
+      padding: 0.4rem 1rem; border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .timeline-link:hover { background: rgba(74,222,128,0.08); }
+
+    .timeline-stat {
+      display: inline-block;
+      margin-top: 0.75rem;
+      background: rgba(74,222,128,0.08);
+      border: 1px solid rgba(74,222,128,0.2);
+      border-radius: 8px;
+      padding: 0.4rem 1rem;
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--green);
+    }
+
+    .wip-badge {
+      display: inline-block;
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.3);
+      color: #ef4444;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.25rem 0.7rem; border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Intro block */
+    .history-intro {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .history-intro strong { color: var(--white); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/banka.png" alt="logo"><span class="logo-text">Qwer<span class="logo-green">_Team</span></span></a>
+  <div class="nav-links-wrap"><ul class="nav-links">
+    <li><a href="index.html">Главная</a></li>
+    <li><a href="projects.html">Проекты</a></li>
+    <li><a href="team.html">Команда</a></li>
+    <li><a href="history.html" class="active">История</a></li>
+    <li><a href="index.html#contact">Связаться</a></li>
+  </ul></div>
+</nav>
+
+<div class="page-content">
+  <div class="history-hero">
+    <div class="container">
+      <div class="section-label fade">Как всё началось</div>
+      <h2 class="section-title fade" style="animation-delay:0.1s">История команды</h2>
+      <p class="section-desc fade" style="animation-delay:0.2s">Про историю создания, сотрудничество и постройку карт Qwer_Team.</p>
+    </div>
+  </div>
+
+  <div class="history-content">
+    <div class="container">
+
+      <!-- Intro -->
+      <div class="history-intro reveal">
+        Идея про постройку карты пришла спонтанно. Вечером несколько людей сидели в Discord и болтали о своём. <strong>Основатель команды</strong> — очень хороший и позитивный человек, который в прошлом разрабатывал скины. Он хотел сделать что-то хорошее и позитивное. У него для этого было всё: команда, возможности, опыт — но не было одного. Идеи. Путём обсуждения они решили построить что-то интересное в Minecraft — что-то классное, большое и красивое. Так и появилась идея о постройке карты для сайта Minecraft-Inside.
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot">1</div>
+          <div class="timeline-card">
+            <div class="timeline-label">Начало</div>
+            <div class="timeline-title">Обычный случай: Акт 1</div>
+            <p class="timeline-text">Постройка первого акта была чем-то новым и интересным — на тот момент строителей было всего трое. Постройкой визуальных объектов занимались строители, командными блоками занимался создатель карты.</p>
+            <p class="timeline-text">Первый акт был самым волнительным в карьере ребят — никто не знал, продвинется ли проект. После выпуска карты автор написал весь сюжет под ней, что оказалось очень удобно.</p>
+            <div class="timeline-stat">📊 19 000+ просмотров</div>
+            <br>
+            <a href="https://minecraft-inside.ru/maps/171293-obychnyy-sluchay-akt-1-remaster.html" target="_blank" class="timeline-link">Посмотреть на Minecraft Inside →</a>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">2</div>
+          <div class="timeline-card">
+            <div class="timeline-label">Продолжение</div>
+            <div class="timeline-title">Обычный случай: Акт 2</div>
+            <p class="timeline-text">Ребята начали думать о постройке второго акта, потому что их первая работа собрала немалое количество просмотров. По просьбам многих игроков они начали строить продолжение.</p>
+            <p class="timeline-text">Второй акт получился не хуже первого. Количество просмотров первого акта он пока не обогнал, но ещё не всё потеряно.</p>
+            <a href="https://minecraft-inside.ru/maps/172331-obychnyy-sluchay-akt-2.html" target="_blank" class="timeline-link">Посмотреть на Minecraft Inside →</a>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">3</div>
+          <div class="timeline-card">
+            <div class="wip-badge">❌ Заброшен</div>
+            <div class="timeline-label">Не вышел</div>
+            <div class="timeline-title">Обычный случай: Акт 3</div>
+            <p class="timeline-text">Третий акт находился на стадии разработки, игроки прошлых частей очень ждали продолжение. Однако проект был заброшен и так и не вышел.</p>
+            <p class="timeline-text">Вместо этого команда сосредоточилась на новых проектах — Remake, Bottle Adventure и других картах.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">★</div>
+          <div class="timeline-card">
+            <div class="timeline-label">Сегодня</div>
+            <div class="timeline-title">Qwer_Team сейчас</div>
+            <p class="timeline-text">Простые ребята, друзья создателя команды. В команде не больше 10 человек — кто-то занимается сценарием, кто-то строительством, и у каждого есть своя роль.</p>
+            <p class="timeline-text">За время существования команды вышло 6 проектов: карты, моды, DLC. Работа продолжается.</p>
+            <a href="projects.html" class="timeline-link">Все проекты →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-wrapper">
+  <div class="footer-sleeping-outer"><img src="images/sleeping.png" alt="zzz"></div>
+  <footer><p>© 2026 <span>Qwer_Team</span> — Minecraft контент на заказ. Размещено на GitHub Pages.</p></footer>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll(".reveal, .timeline-item").forEach(el => observer.observe(el));
+});
+</script>
+
+</body>
+</html>
