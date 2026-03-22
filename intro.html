@@ -87,6 +87,9 @@
       margin-bottom: 1.5rem;
       animation: fadeUp 0.6s 0.3s ease both;
       opacity: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .sound-title {
@@ -113,6 +116,7 @@
 
     .time-row {
       display: flex; justify-content: space-between;
+      width: 100%;
       font-size: 0.75rem; color: var(--muted);
       font-weight: 600;
     }
@@ -184,7 +188,6 @@
   <p class="intro-sub">Послушай это до конца. Мы не торопим.<br>Ну почти.</p>
 
   <div class="player">
-    <div class="sound-title" id="soundTitle">🎵 Загрузка...</div>
     <div class="progress-wrap">
       <div class="progress-bar" id="progressBar"></div>
     </div>
@@ -210,8 +213,6 @@
 
   const chosen = sounds[Math.floor(Math.random() * sounds.length)];
   const audio = new Audio(chosen.src);
-
-  document.getElementById('soundTitle').textContent = '🎵 ' + chosen.title;
 
   let playing = false;
   let skipTimer = null;
