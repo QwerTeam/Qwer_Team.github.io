@@ -51,18 +51,19 @@ nav {
 
 /* PAGE HERO */
 .page-hero {
-  padding: 2rem 2rem 1rem;
+  padding: 5rem 2rem 3rem;
   background: var(--bg);
   position: relative;
   overflow: hidden;
 }
 .page-hero::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: none;
+  background: radial-gradient(ellipse 50% 60% at 50% 0%, rgba(74,222,128,0.06) 0%, transparent 70%);
 }
 
 /* PROJECTS */
-.projects-section { padding: 0 2rem 4rem; background: var(--bg); }.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 0.5rem; }
+.projects-section { padding: 3rem 2rem 6rem; background: var(--bg); }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
 .project-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
 .project-card:hover { border-color: rgba(74,222,128,0.4); transform: translateY(-4px); }
 .project-img { width: 100%; height: 200px; background: #000; overflow: hidden; border-bottom: 1px solid var(--border); }
@@ -74,7 +75,7 @@ nav {
 .project-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
 
 /* TEAM */
-.team-section { padding: 1.5rem 2rem 4rem; background: var(--bg2); }
+.team-section { padding: 3rem 2rem 6rem; background: var(--bg2); }
 .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; align-items: stretch; max-width: 800px; margin-left: auto; margin-right: auto; }
 .team-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; text-align: center; transition: border-color 0.25s, transform 0.25s; position: relative; display: flex; flex-direction: column; }
 .team-card:hover { border-color: rgba(74,222,128,0.5); transform: translateY(-6px); }
@@ -88,7 +89,7 @@ nav {
 
 /* FOOTER */
 .footer-wrapper { position: relative; }
-.footer-sleeping-outer { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); height: 60px; pointer-events: all; z-index: 10; padding: 8px 16px 0; cursor: pointer; }
+.footer-sleeping-outer { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); height: 130px; pointer-events: all; z-index: 10; padding: 8px 16px 0; cursor: pointer; }
 .footer-sleeping-outer img { height: 100%; width: auto; object-fit: contain; display: block; }
 footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; color: var(--muted); font-size: 0.85rem; }
 footer span { color: var(--green); }
@@ -118,8 +119,8 @@ footer span { color: var(--green); }
 /* SCROLL ANIMATIONS */
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .reveal.visible {
   opacity: 1;
