@@ -34,7 +34,7 @@
     }
     .hero-render-item {
       position: absolute;
-      filter: blur(2px) brightness(0.35);
+      filter: blur(0.5px) brightness(0.55);
       transition: transform 0.1s ease-out;
       user-select: none;
     }
@@ -42,9 +42,27 @@
       width: 100%; height: 100%;
       object-fit: contain;
     }
-    .hero-render-item { position: absolute; transition: transform 0.1s ease-out; }
-    .hr-left  { width: 620px; height: 620px; top: 50%; left: 20px; transform: translateY(-50%); }
-    .hr-right { width: 620px; height: 620px; top: 50%; right: 20px; transform: translateY(-50%); }
+    .hero-render-item { position: absolute; }
+    .hr-left  {
+      width: 620px; height: 620px;
+      top: 50%; left: 20px;
+      animation: floatLeft 6s ease-in-out infinite;
+    }
+    .hr-right {
+      width: 620px; height: 620px;
+      top: 50%; right: 20px;
+      animation: floatRight 7s ease-in-out infinite;
+    }
+    @keyframes floatLeft {
+      0%   { transform: translateY(calc(-50% - 18px)) rotate(-2deg); }
+      50%  { transform: translateY(calc(-50% + 18px)) rotate(2deg); }
+      100% { transform: translateY(calc(-50% - 18px)) rotate(-2deg); }
+    }
+    @keyframes floatRight {
+      0%   { transform: translateY(calc(-50% + 18px)) rotate(2deg); }
+      50%  { transform: translateY(calc(-50% - 18px)) rotate(-2deg); }
+      100% { transform: translateY(calc(-50% + 18px)) rotate(2deg); }
+    }
     .hero-tag { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); border: 1px solid rgba(74,222,128,0.3); padding: 0.35rem 1rem; border-radius: 999px; margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both; }
     h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(2.5rem, 7vw, 5.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -2px; color: var(--white); animation: fadeUp 0.7s 0.1s ease both; }
     h1 span { color: var(--green); }
@@ -159,34 +177,6 @@ document.addEventListener("DOMContentLoaded", function() {
   document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 });
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const hero = document.getElementById("hero");
-  const left  = document.querySelector(".hr-left");
-  const right = document.querySelector(".hr-right");
 
-  hero.addEventListener("mousemove", function(e) {
-    const cx = hero.offsetWidth / 2;
-    const cy = hero.offsetHeight / 2;
-    const dx = e.clientX - cx;
-    const dy = e.clientY - cy;
-    const s = 0.05;
-    left.style.transform  = `translateY(calc(-50% + ${dy*s}px)) translateX(${dx*s}px)`;
-    right.style.transform = `translateY(calc(-50% + ${dy*s}px)) translateX(${dx*s}px)`;
-  });
-
-  hero.addEventListener("mouseleave", function() {
-    left.style.transition  = "transform 0.8s ease-out";
-    right.style.transition = "transform 0.8s ease-out";
-    left.style.transform   = "translateY(-50%)";
-    right.style.transform  = "translateY(-50%)";
-  });
-
-  hero.addEventListener("mouseenter", function() {
-    left.style.transition  = "transform 0.12s ease-out";
-    right.style.transition = "transform 0.12s ease-out";
-  });
-});
-</script>
 </body>
 </html>
