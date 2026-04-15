@@ -16,7 +16,12 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+body { 
+  font-family: 'Minecraft', monospace; 
+  background: var(--bg); 
+  color: var(--text); 
+  overflow-x: hidden; 
+}
 
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
