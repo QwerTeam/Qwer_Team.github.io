@@ -5,6 +5,11 @@
   font-style: normal;
 }
 
+/* ═══════════════════════════════════════
+   QWER TEAM — VailetGod Style Restyle
+   Accent: #FFD700 (gold) instead of purple
+   ═══════════════════════════════════════ */
+
 :root {
   --gold: #FFD700;
   --gold-bright: #FFE84D;
